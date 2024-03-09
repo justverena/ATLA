@@ -7,7 +7,7 @@ Content-Type: application/json
     "Age" : 112,
     "Gender" : "male",
     "Status" : "alive",
-    "Nation" : "air",
+    "Nation" : "air"
 }
 
 > {%
