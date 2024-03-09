@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS characters
     updated_at  timestamp(0) with time zone NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE IF NOT EXISTS menu
+CREATE TABLE IF NOT EXISTS episodes
 (
     id              bigserial PRIMARY KEY,
     title           text                        NOT NULL,
