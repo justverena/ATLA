@@ -3,6 +3,7 @@ POST localhost:8081/api/v1/characters
 Content-Type: application/json
 
 {
+    "ID" : 1,
     "Name" : "AAng",
     "Age" : 112,
     "Gender" : "male",

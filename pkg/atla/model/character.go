@@ -26,11 +26,11 @@ type CharacterModel struct {
 
 func (m CharacterModel) Insert(character *Character) error {
 	query := `
-		INSERT INTO characters (name, age, gender, status, nation) 
-		VALUES ($1, $2, $3) 
+		INSERT INTO characters (id, name, age, gender, status, nation) 
+		VALUES ($1, $2, $3, $4, $5, $6) 
 		RETURNING id, created_at, updated_at
 		`
-	args := []interface{}{character.Name, character.Age, character.Gender, character.Status, character.Nation}
+	args := []interface{}{character.ID, character.Name, character.Age, character.Gender, character.Status, character.Nation}
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 

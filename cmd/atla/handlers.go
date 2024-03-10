@@ -87,8 +87,14 @@ func (app *application) updateCharacterHandler(w http.ResponseWriter, r *http.Re
 	}
 
 	var input struct {
-		CharacterName *string `json:"characterName"`
-		Age           *int    `json:"age"`
+		ID        *int    `json:"id"`
+		Name      *string `json:"name"`
+		Age       *int    `json:"age"`
+		Gender    *string `json:"gender"`
+		Status    *string `json:"status"`
+		Nation    *string `json:"nation"`
+		CreatedAt *string `json:"createdAt"`
+		UpdatedAt *string `json:"updatedAt"`
 	}
 
 	err = app.readJSON(w, r, &input)
@@ -97,12 +103,28 @@ func (app *application) updateCharacterHandler(w http.ResponseWriter, r *http.Re
 		return
 	}
 
-	if input.CharacterName != nil {
-		character.Name = *input.CharacterName
+	if input.ID != nil {
+		character.ID = *input.ID
+	}
+
+	if input.Name != nil {
+		character.Name = *input.Name
 	}
 
 	if input.Age != nil {
 		character.Age = *input.Age
+	}
+
+	if input.Gender != nil {
+		character.Gender = *input.Gender
+	}
+
+	if input.Status != nil {
+		character.Status = *input.Status
+	}
+
+	if input.Nation != nil {
+		character.Nation = *input.Nation
 	}
 
 	err = app.models.Characters.Update(character)
